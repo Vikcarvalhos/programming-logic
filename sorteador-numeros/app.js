@@ -3,13 +3,18 @@ function sortear(){
     let fromRange = parseInt(document.getElementById('de').value);
     let toRange = parseInt(document.getElementById('ate').value);
 
-    let numbers = [];
-    
+    let drawNumbers = [];
+    let drawed = 0;
+
     for (let i = 0; i < quantity; i++) {
-        numbers.push(getRandomNumber(fromRange, toRange));
+        let drawed = getRandomNumber(fromRange, toRange);
+        if(drawNumbers.includes(drawed)){
+            i--;
+        } else {
+            drawNumbers.push(drawed);
+        };
     }
 
-    alert(numbers);
 }
 
 function getRandomNumber(from, to){
